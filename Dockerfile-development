@@ -23,4 +23,5 @@ WORKDIR /app
 RUN bundle config set path vendor/bundle
 
 # 8. Define the commands when no command is assigned in execution
+EXPOSE 3000
 CMD ["bash"]

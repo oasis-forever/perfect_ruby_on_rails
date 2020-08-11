@@ -64,4 +64,5 @@ USER rails
 VOLUME /app/public
 
 # 15. Define the commands when no command is assigned in execution
+EXPOSE 3000
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]
