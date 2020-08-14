@@ -47,24 +47,12 @@ mysql> exit;
 
 ### 4-3. Rails
 
-#### 4-3-1. Gem install
+#### 4-3-1. Create database
 
 ```bash
-$ docker-compose exec app bundle
+$ dokcer-compose exec app bin/rails db:create
 ```
 
-#### 4-3-2. Yarn install
-
-```bash
-$ docker-compose exec app yarn install
-```
-
-#### 4-3-3. Create database
-
-```bash
-$ docker-compose exec app bin/rails db:create
-```
-
-#### 4-3-4. Access localhost
+#### 4-3-2. Access localhost
 
 ![Yay! You're on Ruby on Rails](https://github.com/oasis-forever/rails_experiment/blob/master/public/yay!-you're-on-rails!.png)
