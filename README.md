@@ -53,6 +53,6 @@ mysql> exit;
 $ dokcer-compose exec app bin/rails db:create
 ```
 
-#### 4-3-2. Access localhost
+#### 4-3-2. Access `localhost:3000`
 
 ![Yay! You're on Ruby on Rails](https://github.com/oasis-forever/rails_experiment/blob/master/public/yay!-you're-on-rails!.png)
