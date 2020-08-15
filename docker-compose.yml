@@ -5,7 +5,7 @@ services:
     command: ["--bind-address=0.0.0.0"]
     command: [--default-authentication-plugin=mysql_native_password]
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD_DEV}
     ports:
       - "3306:3306"
     volumes:
@@ -16,9 +16,9 @@ services:
       context: .
       dockerfile: Dockerfile-dev
     environment:
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: password
-      MYSQL_HOST: db
+      MYSQL_USERNAME: ${MYSQL_USERNAME_DEV}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD_DEV}
+      MYSQL_HOST: ${MYSQL_HOST_DEV}
       ROLLBAR_ACCESS_TOKEN: ${ROLLBAR_ACCESS_TOKEN}
     ports:
       - "3000:3000"

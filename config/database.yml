@@ -5,10 +5,10 @@ default: &default
   collation: utf8mb4_bin
   pool: 5
   timeout: 5000
-  username: <%= ENV["MYSQL_USERNAME"] || "root" %>
-  password: <%= ENV["MYSQL_PASSWORD"] || "password" %>
-  host: <%= ENV["MYSQL_HOST"] || "127.0.0.1" %>
-  port: <%= ENV["MYSQL_PORT"] || "3306" %>
+  username: <%= ENV["MYSQL_USERNAME"] %>
+  password: <%= ENV["MYSQL_PASSWORD"] %>
+  host: <%= ENV["MYSQL_HOST"] %>
+  port: <%= ENV["MYSQL_PORT"] %>
 
 development:
   <<: *default
@@ -21,7 +21,3 @@ test:
 production:
   <<: *default
   database: perfect_ruby_on_rails_production
-  username: <%= ENV["MYSQL_USERNAME"] %>
-  password: <%= ENV["MYSQL_PASSWORD"] %>
-  host: <%= ENV["MYSQL_HOST"] %>
-  port: <%= ENV["MYSQL_PORT"] %>
