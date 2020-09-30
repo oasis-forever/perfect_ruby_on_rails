@@ -50,7 +50,7 @@ mysql> exit;
 #### 4-3-1. Create database
 
 ```bash
-$ dokcer-compose exec app bin/rails db:create
+$ docker-compose exec app bin/rails db:create
 ```
 
 #### 4-3-2. Access `localhost:3000`
