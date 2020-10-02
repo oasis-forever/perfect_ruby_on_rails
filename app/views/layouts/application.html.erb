@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta content="text/html" charset="utf-8" http-equiv="content-type">
     <title>PerfectRubyOnRails</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container">
+        <%= link_to "Tech Events", root_path, class: 'navbar-brand' %>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
