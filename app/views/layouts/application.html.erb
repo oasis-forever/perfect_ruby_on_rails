@@ -15,7 +15,11 @@
         <%= link_to 'Tech Events', root_path, class: 'navbar-brand mr-auto' %>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <%= link_to 'Login via GitHub', '/auth/github', class: 'nav-link', method: :post %>
+            <% if logged_in? %>
+              <%= link_to 'Logout', logout_path, class: 'nav-link', method: :delete %>
+            <% else %>
+              <%= link_to 'Login via GitHub', '/auth/github', class: 'nav-link', method: :post %>
+            <% end %>
           </li>
         </ul>
       </div>
