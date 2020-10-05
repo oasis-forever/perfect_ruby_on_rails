@@ -1,1 +1,9 @@
-<h1>トップ画面</h1>
+<h1>イベント一覧</h1>
+<div class="list-group">
+  <% @events.each do |event| %>
+    <%= link_to(event, class: 'list-group-item list-group-item-action') do %>
+      <h5 class="list-group-item-heading"><%= event.name %></h5>
+      <p class="mb-1"><%= "#{l(event.start_at, format: :long)} - #{l(event.end_at, format: :long)}" %></p>
+    <% end %>
+  <% end %>
+</div>

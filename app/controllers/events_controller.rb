@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  skip_before_action only: :show
+  before_action :set_event, only: [:show]
+
   def new
     @event = current_user.created_events.build
   end
@@ -11,9 +14,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def event_params
     params.require(:event).permit(:name, :place, :content, :start_at, :end_at)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
   end
 end
