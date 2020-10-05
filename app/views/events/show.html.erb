@@ -28,3 +28,15 @@
     <% end %>
   </div>
 </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <% if @event.created_by?(current_user) %>
+      <div class="col-auto">
+        <%= link_to 'イベント編集', edit_event_path(@event), class: 'btn btn-primary btn-lg btn-block' %>
+      </div>
+    <% end %>
+    <div class="col-auto">
+      <%= link_to '戻る', 'javascript:history.back()', class: 'btn btn-secondary btn-lg btn-block' %>
+    </div>
+  </div>
+</div>

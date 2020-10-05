@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   skip_before_action only: :show
   before_action :set_event, only: [:show]
+  before_action :set_event_of_current_user, only: [:edit, :update]
 
   def new
     @event = current_user.created_events.build
@@ -10,11 +11,20 @@ class EventsController < ApplicationController
     @event = current_user.created_events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: 'イベントが登録されました'
+      redirect_to @event, notice: 'イベントを登録しました'
     end
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to @event, notice: 'イベントを更新しました'
+    end
   end
 
   private
@@ -25,5 +35,9 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def set_event_of_current_user
+    @event = current_user.created_events.find(params[:id])
   end
 end
