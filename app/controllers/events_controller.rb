@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   skip_before_action only: :show
   before_action :set_event, only: [:show]
-  before_action :set_event_of_current_user, only: [:edit, :update]
+  before_action :set_event_of_current_user, only: [:edit, :update, :destroy]
 
   def new
     @event = current_user.created_events.build
@@ -25,6 +25,11 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: 'イベントを更新しました'
     end
+  end
+
+  def destroy
+    @event.destroy!
+    redirect_to root_path, notice: 'イベントを削除しました'
   end
 
   private
