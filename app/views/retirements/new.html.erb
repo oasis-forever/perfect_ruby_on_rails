@@ -1,0 +1,15 @@
+<h1 calss="mt-3">退会確認</h1>
+
+<div id="errors"></div>
+
+<p>退会するとユーザーに関する全ての情報が削除されます。</p>
+<p>ただし、以下の場合は退会の操作を実行できません。</p>
+
+<ul>
+  <li>公開中の未終了イベントがある場合</li>
+  <li>未終了の参加イベントがある場合</li>
+</ul>
+
+<hr>
+
+<%= link_to '退会する', retirements_path, method: :post, remote: true, class: 'btn btn-danger', data: { confirm: '本当に退会しますか' } %>

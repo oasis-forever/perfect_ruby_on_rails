@@ -22,9 +22,13 @@
 <div id="owner" class="card mb-2">
   <h5 class="card-header">主催者</h5>
   <div class="card-body">
-    <%= link_to("https://github.com/#{@event.owner.name}", class: 'card-link') do %>
-      <%= image_tag @event.owner.image_url, width: 50, height: 50 %>
-      <%= "@#{@event.owner.name}" %>
+    <% if @event.owner %>
+      <%= link_to("https://github.com/#{@event.owner.name}", class: 'card-link') do %>
+        <%= image_tag @event.owner.image_url, width: 50, height: 50 %>
+        <%= "@#{@event.owner.name}" %>
+      <% end %>
+    <% else %>
+      退会済ユーザー
     <% end %>
   </div>
 </div>
@@ -32,9 +36,13 @@
   <h5 class="card-header">参加者</h5>
   <div class="card-body">
     <% @tickets.each do |ticket| %>
-      <%= link_to("https://github.com/#{ticket.user.name}", class: 'card-link') do %>
-        <%= image_tag ticket.user.image_url, width: 50, height: 50 %>
-        <%= "@#{ticket.user.name}" %>
+      <% if ticker.user %>
+        <%= link_to("https://github.com/#{ticket.user.name}", class: 'card-link') do %>
+          <%= image_tag ticket.user.image_url, width: 50, height: 50 %>
+          <%= "@#{ticket.user.name}" %>
+        <% end %>
+      <% else %>
+        退会済ユーザー
       <% end %>
     <% end %>
   </div>
