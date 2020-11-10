@@ -1,7 +1,7 @@
 # syntax = docker/dockerfile:experimental
 
 # 1. Load Ruby image
-FROM ruby:2.7.1
+FROM ruby:2.7.2
 
 # 2. Install Node.js and Yarn
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev
