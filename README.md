@@ -28,7 +28,7 @@ $ docker-compose up -d
 ### 4-2. MySQL
 
 ```bash
-$ dokcer-compose exec db mysql -u root -p
+$ docker-compose exec db mysql -u root -p
 password:
 ```
 
