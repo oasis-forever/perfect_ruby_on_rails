@@ -10,7 +10,7 @@ ja:
         time: 開催時刻
         start_at: 開始時刻
         end_at: 終了時刻
-        content: 内容
+        content: イベント内容
         owner: 主催者
         participants: 参加者
       ticket:
