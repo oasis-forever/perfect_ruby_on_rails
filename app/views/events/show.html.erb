@@ -36,7 +36,7 @@
   <h5 class="card-header">参加者</h5>
   <div class="card-body">
     <% @tickets.each do |ticket| %>
-      <% if ticker.user %>
+      <% if ticket.user %>
         <%= link_to("https://github.com/#{ticket.user.name}", class: 'card-link') do %>
           <%= image_tag ticket.user.image_url, width: 50, height: 50 %>
           <%= "@#{ticket.user.name}" %>
