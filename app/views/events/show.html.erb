@@ -81,7 +81,9 @@
           </div>
         </div>
       <% else %>
-        <%= link_to '参加する', new_event_ticket_path(@event), class: 'btn btn-primary btn-lg btn-block' %>
+        <div class="col-auto">
+          <%= link_to '参加する', new_event_ticket_path(@event), class: 'btn btn-primary btn-lg btn-block' %>
+        </div>
       <% end %>
     <% end %>
     <% if @event.created_by?(current_user) %>
