@@ -7,8 +7,16 @@ ja:
       event:
         name: イベント名
         place: 開催地
+        time: 開催時刻
         start_at: 開始時刻
         end_at: 終了時刻
         content: 内容
+        owner: 主催者
+        participants: 参加者
       ticket:
-        comment: 内容
+        comment: 参加コメント
+      user:
+        provider: プロバイダー
+        uid: ユーザーID
+        name: ユーザー名
+        image_url: 画像URL

@@ -1,12 +1,12 @@
 <h1 class="mt-3 mb-3"><%= @event.name %></h1>
 <div id="content" class="card mb-2">
-  <h5 class="card-header">イベント内容</h5>
+  <h5 class="card-header"><%= Event.human_attribute_name(:content) %></h5>
   <div class="card-body">
     <p class="card-text"><%= @event.content %></p>
   </div>
 </div>
 <div id="time-from-to" class="card mb-2">
-  <h5 class="card-header">開催時刻</h5>
+  <h5 class="card-header"><%= Event.human_attribute_name(:time) %></h5>
   <div class="card-body">
     <p class="card-text">
       <%= "#{l(@event.start_at, format: :long)} - #{l(@event.end_at, format: :long)}" %>
@@ -14,13 +14,13 @@
   </div>
 </div>
 <div id="place" class="card mb-2">
-  <h5 class="card-header">開催場所</h5>
+  <h5 class="card-header"><%= Event.human_attribute_name(:place) %></h5>
   <div class="card-body">
     <p class="card-text"><%= @event.place %></p>
   </div>
 </div>
 <div id="owner" class="card mb-2">
-  <h5 class="card-header">主催者</h5>
+  <h5 class="card-header"><%= Event.human_attribute_name(:owner) %></h5>
   <div class="card-body">
     <% if @event.owner %>
       <%= link_to("https://github.com/#{@event.owner.name}", class: 'card-link') do %>
@@ -33,7 +33,7 @@
   </div>
 </div>
 <div id="participants" class="card mb-2">
-  <h5 class="card-header">参加者</h5>
+  <h5 class="card-header"><%= Event.human_attribute_name(:participants) %></h5>
   <div class="card-body">
     <% @tickets.each do |ticket| %>
       <% if ticket.user %>
@@ -62,7 +62,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                   <div class="model-header">
-                    <h4 class="modal-title" id="dialogHeader">参加コメント</h4>
+                    <h4 class="modal-title" id="dialogHeader"><%= Ticket.human_attribute_name(:comment) %></h4>
                     <button class="close" type="button" data-dismiss="modal">&times;</button>
                   </div>
                   <%= form_with(model: @event.tickets.build, url: event_tickets_path(@event)) do |f| %>
