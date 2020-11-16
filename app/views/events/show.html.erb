@@ -41,6 +41,7 @@
           <%= image_tag ticket.user.image_url, width: 50, height: 50 %>
           <%= "@#{ticket.user.name}" %>
         <% end %>
+        <%= ticket.comment %>
       <% else %>
         退会済ユーザー
       <% end %>
