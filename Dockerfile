@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y nodejs yarn
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 RUN apt-get install -y google-chrome-stable
+RUN apt-get update && apt-get install -y locales && locale-gen ja_JP.UTF-8
+ENV LANG ja_JP.UTF-8
+ENV LANGUAGE ja_JP:ja
+ENV LC_ALL=ja_JP.UTF-8
+RUN localedef -f UTF-8 -i ja_JP ja_JP.utf8
 
 # 3. Switch directory to /tmp
 WORKDIR /tmp
