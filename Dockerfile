@@ -3,12 +3,15 @@
 # 1. Load Ruby image
 FROM ruby:2.7.2
 
-# 2. Install Node.js and Yarn
+# 2. Install Node.js, Yarn and Chrome
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -y nodejs yarn
+RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+RUN apt-get install -y google-chrome-stable
 
 # 3. Switch directory to /tmp
 WORKDIR /tmp
