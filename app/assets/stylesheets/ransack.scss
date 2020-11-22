@@ -1,0 +1,19 @@
+.panel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  &-default {
+    border-color: #ddd;
+  }
+  &-body {
+    padding: 15px;
+  }
+}
+
+.form-btn-field {
+  margin-top: 20px;
+  text-align: center;
+}

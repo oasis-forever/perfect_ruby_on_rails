@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   before_action :set_event_of_current_user, only: %i(edit update destroy)
 
   def index
-    @events = Event.page(params[:page]).per(paginate_per).default
+    @q = Event.ransack(params[:q])
+    @events = @q.result.page(params[:page]).per(paginate_per).default
   end
 
   def new
