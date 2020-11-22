@@ -32,7 +32,7 @@
     <% end %>
     <%= f.file_field :image, class: 'form-control-file' %>
   </div>
-  <% if event.image.attached? %>
+  <% if event.image.attached? && event.image.blob&.persisted? %>
     <div class="checkbox" %>
       <label>
         <%= f.check_box :remove_image %>
