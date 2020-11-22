@@ -1,4 +1,5 @@
 <h1>イベント一覧</h1>
+<%= render 'shared/pagination_header', objects: @events %>
 <div class="list-group">
   <% @events.each do |event| %>
     <%= link_to(event, class: 'list-group-item list-group-item-action') do %>
@@ -6,4 +7,8 @@
       <p class="mb-1"><%= "#{l(event.start_at, format: :long)} - #{l(event.end_at, format: :long)}" %></p>
     <% end %>
   <% end %>
+</div>
+
+<div class="pagination-content float-right mt-4">
+  <%= paginate(@events) %>
 </div>

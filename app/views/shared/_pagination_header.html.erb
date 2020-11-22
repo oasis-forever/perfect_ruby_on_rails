@@ -1,0 +1,19 @@
+<% if defined?(objects) %>
+<div class="pagination-field">
+  <div class="pagination-wrapper">
+    <div class="entry-content">
+      <%= page_entries_info(objects, entry_name: objects&.model_name.to_s) %>
+      <p class="display-items">
+        表示件数：
+        <% AppConfig[:number_per_page].each do |per| %>
+          <%= link_to_unless per == objects.limit_value, per, params.permit!.merge(per: per) %>
+        <% end %>
+         &nbsp;
+      </p>
+    </div>
+    <div class="pagination-content float-right">
+      <%= paginate(objects) %>
+    </div>
+  </div>
+</div>
+<% end %>

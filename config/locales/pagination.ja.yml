@@ -1,0 +1,16 @@
+ja:
+  views:
+    pagination:
+      first: "最初へ"
+      last: "最後へ"
+      previous: "前へ"
+      next: "次へ"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        zero: "該当データがありません。"
+        one: "1-1/全1件"
+        display_entries: '1-%{count}/全%{count}件'
+      more_pages:
+        display_entries: '%{first}-%{last}/全%{total}件'

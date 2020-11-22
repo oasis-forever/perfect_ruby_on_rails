@@ -1,0 +1,17 @@
+.pagination-field {
+  display: table;
+  width: 100%;
+  margin-top: 10px;
+  .pagination-wrapper {
+    display: table-row;
+    .entry-content {
+      display: table-cell;
+      width: 220px;
+      vertical-align: middle;
+    }
+    .pagination-content {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}

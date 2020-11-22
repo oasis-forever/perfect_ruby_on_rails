@@ -1,0 +1,14 @@
+common: &common
+  number_per_page: [20, 50, 100, 200, 500]
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
+staging:
+  <<: *common
+
+production:
+  <<: *common
