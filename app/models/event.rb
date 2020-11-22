@@ -18,6 +18,8 @@ class Event < ApplicationRecord
     size: { less_than_or_equal_to: 10.megabytes },
     dimension: { width: { max: 2000 }, height: { max: 2000 } }
 
+  scope :default, -> { where('start_at >= ?', Time.now).order(:start_at, :name) }
+
   def created_by?(user)
     return false unless user
     owner_id == user.id
