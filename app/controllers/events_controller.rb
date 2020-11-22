@@ -1,7 +1,11 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate, only: :show
+  skip_before_action :authenticate, only: %i(index show)
   before_action :set_event, only: :show
   before_action :set_event_of_current_user, only: %i(edit update destroy)
+
+  def index
+    @events = Event.page(params[:page]).per(paginate_per).default
+  end
 
   def new
     @event = current_user.created_events.build
