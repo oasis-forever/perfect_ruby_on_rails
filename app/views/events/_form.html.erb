@@ -25,6 +25,21 @@
       <%= f.datetime_select :end_at, start_year: now.year, end_year: now.year + 1 %>
     </div>
   </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <% if event.image.attached? %>
+      <%= image_tag event.image, class: 'img-thumnail d-block mb-3', width: 200, height: 200 %>
+    <% end %>
+    <%= f.file_field :image, class: 'form-control-file' %>
+  </div>
+  <% if event.image.attached? %>
+    <div class="checkbox" %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除する
+      </label>
+    </div>
+  <% end %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-auto">

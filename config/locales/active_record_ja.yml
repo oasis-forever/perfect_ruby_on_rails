@@ -13,6 +13,7 @@ ja:
         content: イベント内容
         owner: 主催者
         participants: 参加者
+        image: 画像
       ticket:
         comment: 参加コメント
       user:
