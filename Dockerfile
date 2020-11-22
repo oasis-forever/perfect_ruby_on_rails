@@ -3,7 +3,7 @@
 # 1. Load Ruby image
 FROM ruby:2.7.2
 
-# 2. Install Node.js, Yarn and Chrome
+# 2. Install required packages
 RUN apt-get update && apt-get install -y curl build-essential libpq-dev
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -12,11 +12,7 @@ RUN apt-get update && apt-get install -y nodejs yarn
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 RUN apt-get install -y google-chrome-stable
-RUN apt-get update && apt-get install -y locales && locale-gen ja_JP.UTF-8
-ENV LANG ja_JP.UTF-8
-ENV LANGUAGE ja_JP:ja
-ENV LC_ALL=ja_JP.UTF-8
-RUN localedef -f UTF-8 -i ja_JP ja_JP.utf8
+RUN apt-get update && apt-get install -y libvips libvips-dev
 
 # 3. Switch directory to /tmp
 WORKDIR /tmp
