@@ -33,19 +33,12 @@ class ApplicationController < ActionController::Base
     }
   end
 
-  def discard_last_pagination_data
-    session[:last_pagination_data] = nil
-  end
-
   def load_pagination_params(action)
-    ret = {}
-    if (data = session[:last_pagination_data])
-      if data["controller"] == controller_name && data["action"] == action.to_s
-        ret = data["params"]
-      end
+    data = session[:last_pagination_data].presence
+    if data["controller"] == controller_name && data["action"] == action.to_s
+      session[:last_pagination_data] = nil
+      ret = data["params"]
     end
-    discard_last_pagination_data
-    ret
   end
 
   def redirect_with_kept_pagination_params(action:, **args)
