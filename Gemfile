@@ -5,8 +5,6 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.3'
-# Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.5.3'
 # Use Puma as the app server
 gem 'puma', '~> 5.2.1'
 # Use SCSS for stylesheets
@@ -53,6 +51,8 @@ gem 'ransack', '~> 2.4.2'
 gem 'rexml', '~> 3.2.4'
 
 group :development, :test do
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '~> 0.5.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', "~> 11.1.3", platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -73,6 +73,10 @@ group :test do
   gem 'selenium-webdriver', '~> 3.142.7'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers', '~> 4.6.0'
+end
+
+group :production do
+  gem 'pg', '~> 1.2.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
