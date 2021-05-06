@@ -50,6 +50,9 @@ gem 'ransack', '~> 2.4.2'
 
 gem 'rexml', '~> 3.2.4'
 
+# Patch actionpack
+gem "actionpack", ">= 6.1.3.2"
+
 group :development, :test do
   # Use mysql as the database for Active Record
   gem 'mysql2', '~> 0.5.3'
