@@ -25,13 +25,15 @@ class Event < ApplicationRecord
     owner_id == user.id
   end
 
+  def has_image_to_show?
+    self.image.attached? && self.image.blob&.persisted?
+  end
+
   private
 
   def start_at_should_be_before_end_at
     return unless start_at && end_at
-    if start_at >= end_at
-      errors.add(:start_at, 'は終了時刻より前の時刻を指定してください')
-    end
+    errors.add(:start_at, 'は終了時刻より前の時刻を指定してください') if start_at >= end_at
   end
 
   def remove_image_if_user_accept
