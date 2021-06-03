@@ -14,10 +14,8 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-
-    if @event.save
-      redirect_to @event, notice: 'イベントを登録しました'
-    end
+    return unless @event.save!
+    redirect_to @event, notice: 'イベントを登録しました'
   end
 
   def show
@@ -29,9 +27,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(event_params)
-      redirect_to @event, notice: 'イベントを更新しました'
-    end
+    return unless @event.update!(event_params)
+    redirect_to @event, notice: 'イベントを更新しました'
   end
 
   def destroy
