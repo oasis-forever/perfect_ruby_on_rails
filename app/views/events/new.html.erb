@@ -1,2 +1,2 @@
 <h1 class="mt-2">新規イベント登録</h1>
-<%= render partial: 'form', locals: { event: @event } %>
+<%= render partial: 'form', locals: { event: @event, now: Time.zone.now } %>

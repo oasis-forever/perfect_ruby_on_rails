@@ -1,4 +1,3 @@
-<% now = Time.zone.now %>
 <%= form_with(model: event, class: 'form-horizontal') do |f| %>
   <div id="errors"></div>
   <div class="form-group">
@@ -27,13 +26,11 @@
   </div>
   <div class="form-group">
     <%= f.label :image %>
-    <% if event.image.attached? && event.image.blob&.persisted? %>
-      <%= image_tag event.image.variant(resize_to_fit: [200, 200]), class: 'img-thumnail d-block mb-3' %>
-    <% end %>
+    <%= show_image_if_attached(event) %>
     <%= f.file_field :image, class: 'form-control-file' %>
   </div>
-  <% if event.image.attached? && event.image.blob&.persisted? %>
-    <div class="checkbox" %>
+  <% if event.has_image_to_show? %>
+    <div class="checkbox">
       <label>
         <%= f.check_box :remove_image %>
         画像を削除する
