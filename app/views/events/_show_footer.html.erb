@@ -7,7 +7,7 @@
     <% else %>
       <% if logged_in? %>
         <div class="col-auto">
-          <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTiket">参加する</button>
+          <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">参加する</button>
           <%= render 'ticket_modal', locals: { event: @event } %>
         </div>
       <% else %>
