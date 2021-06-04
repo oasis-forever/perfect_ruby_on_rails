@@ -1,12 +1,12 @@
-<div class="row">
-  <div class="col-8">
-    <div class="card mb-2">
-      <% if @event.image.attached? %>
-        <%= image_tag @event.image, class: 'card-img-top' %>
-      <% end %>
+<% if @event.image.attached? %>
+  <div class="row">
+    <div class="col-8">
+      <div class="card mb-2">
+          <%= image_tag @event.image, class: 'card-img-top' %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 <div id="content" class="card mb-2">
   <h5 class="card-header"><%= Event.human_attribute_name(:content) %></h5>
   <div class="card-body">
