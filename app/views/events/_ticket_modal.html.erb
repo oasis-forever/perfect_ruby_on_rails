@@ -1,9 +1,9 @@
 <div class="modal dafe" id="createTicket">
   <div class="modal-dialog">
     <div class="modal-content">
-        <div class="model-header">
-          <h4 class="modal-title" id="dialogHeader"><%= Ticket.human_attribute_name(:comment) %></h4>
-          <button class="close" type="button" data-dismiss="modal">&times;</button>
+        <div class="model-header pt-3 pl-3">
+          <h4 class="modal-title" id="dialogHeader" class=""><%= Ticket.human_attribute_name(:comment) %></h4>
+          <button class="close mr-3" type="button" data-dismiss="modal">&times;</button>
         </div>
         <%= form_with(model: @event.tickets.build, url: event_tickets_path(@event)) do |f| %>
           <div class="modal-body">
