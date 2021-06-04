@@ -9,9 +9,8 @@ class TicketsController < ApplicationController
       t.event = event
       t.comment = params[:ticket][:comment]
     end
-    if @ticket.save
-      redirect_to event, notice: 'このイベントに参加表明しました'
-    end
+    return unless @ticket.save!
+    redirect_to event, notice: 'このイベントに参加表明しました'
   end
 
   def destroy
