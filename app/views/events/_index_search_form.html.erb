@@ -1,0 +1,45 @@
+<div class="panel panel-default panel-search">
+  <div class="panel-body">
+    <%= search_form_for(@q, class: 'mb-5') do |f| %>
+      <div class="row form-group">
+        <div class="col-sm-6">
+          <%= f.label :name_cont, Event.human_attribute_name(:name), class: 'control-label col-sm-5 nowrap' %>
+          <div class="col-sm-11 col-md-9">
+            <%= f.search_field :name_cont, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <%= f.label :place_cont, Event.human_attribute_name(:place), class: 'control-label col-sm-5 nowrap' %>
+          <div class="col-sm-11 col-md-9">
+            <%= f.search_field :place_cont, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-12">
+          <%= f.label :content_cont, Event.human_attribute_name(:content), class: 'control-label col-sm-5 nowrap' %>
+          <div class="col-sm-11 col-md-10">
+            <%= f.search_field :content_cont, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-6">
+          <%= f.label :start_at_gteq, Event.human_attribute_name(:start_at), class: 'control-label col-sm-5 nowrap' %>
+          <div class="col-sm-11 col-md-9">
+            <%= f.datetime_field :start_at_gteq, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <%= f.label :end_at_lteq, Event.human_attribute_name(:end_at), class: 'control-label col-sm-5 nowrap' %>
+          <div class="col-sm-11 col-md-9">
+            <%= f.datetime_field :end_at_lteq, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+      <div class="form-btn-field">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
