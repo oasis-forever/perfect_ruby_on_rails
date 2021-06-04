@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-8">
+    <div class="card mb-2">
+      <% if @event.image.attached? %>
+        <%= image_tag @event.image, class: 'card-img-top' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div id="content" class="card mb-2">
+  <h5 class="card-header"><%= Event.human_attribute_name(:content) %></h5>
+  <div class="card-body">
+    <p class="card-text"><%= @event.content %></p>
+  </div>
+</div>
+<div id="time-from-to" class="card mb-2">
+  <h5 class="card-header"><%= Event.human_attribute_name(:time) %></h5>
+  <div class="card-body">
+    <p class="card-text">
+      <%= "#{l(@event.start_at, format: :long)} - #{l(@event.end_at, format: :long)}" %>
+    </p>
+  </div>
+</div>
+<div id="place" class="card mb-2">
+  <h5 class="card-header"><%= Event.human_attribute_name(:place) %></h5>
+  <div class="card-body">
+    <p class="card-text"><%= @event.place %></p>
+  </div>
+</div>
+<div id="owner" class="card mb-2">
+  <h5 class="card-header"><%= Event.human_attribute_name(:owner) %></h5>
+  <div class="card-body">
+    <% if @event.owner %>
+      <%= link_to("https://github.com/#{@event.owner.name}", class: 'card-link') do %>
+        <%= image_tag @event.owner.image_url, width: 50, height: 50 %>
+        <%= "@#{@event.owner.name}" %>
+      <% end %>
+    <% else %>
+      退会済ユーザー
+    <% end %>
+  </div>
+</div>
+<div id="participants" class="card mb-2">
+  <h5 class="card-header"><%= Event.human_attribute_name(:participants) %></h5>
+  <div class="card-body">
+    <% @tickets.each do |ticket| %>
+      <% if ticket.user %>
+        <%= link_to("https://github.com/#{ticket.user.name}", class: 'card-link') do %>
+          <%= image_tag ticket.user.image_url, width: 50, height: 50 %>
+          <%= "@#{ticket.user.name}" %>
+        <% end %>
+        <%= ticket.comment %>
+      <% else %>
+        退会済ユーザー
+      <% end %>
+    <% end %>
+  </div>
+</div>

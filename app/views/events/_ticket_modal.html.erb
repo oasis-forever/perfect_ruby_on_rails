@@ -1,0 +1,21 @@
+<div class="modal dafe" id="createTiket">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="model-header">
+          <h4 class="modal-title" id="dialogHeader"><%= Ticket.human_attribute_name(:comment) %></h4>
+          <button class="close" type="button" data-dismiss="modal">&times;</button>
+        </div>
+        <%= form_with(model: @event.tickets.build, url: event_tickets_path(@event)) do |f| %>
+          <div class="modal-body">
+            <div id="createTicketErrors">
+              <%= f.text_field :comment, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="button" data-dismiss="modal">キャンセル</button>
+            <%= f.button '送信', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
