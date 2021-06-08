@@ -1,9 +1,7 @@
 <% if @event.image.attached? %>
-  <div class="row">
+  <div class="row mb-2">
     <div class="col-8">
-      <div class="card mb-2">
-          <%= image_tag @event.image, class: 'card-img-top' %>
-      </div>
+      <%= image_tag @event.image, width: 180 %>
     </div>
   </div>
 <% end %>
